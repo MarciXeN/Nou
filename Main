@@ -1,0 +1,94 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
+
+class Card {
+        String colour;
+        int number;
+}
+
+class Player{
+
+    ArrayList<Card> Cards = new ArrayList<Card>();
+    String playerName;
+
+    void printCards(){
+
+        for(int i = 0; i < this.Cards.size(); i++)
+            System.out.println(this.Cards.get(i).colour + "[" + this.Cards.get(i).number + "]");
+
+}
+
+}
+class DeckOfCards {
+    ArrayList<Card> Deck = new ArrayList<Card>();
+
+    void printDeck() {
+
+        for (int i = 0; i < this.Deck.size(); i++)
+            System.out.println(this.Deck.get(i).colour + "[" + this.Deck.get(i).number + "]");
+
+    }
+}
+
+public class Main {
+
+   static boolean compare2cards(Card Card1,Card Card2) {
+        if (Card1.colour == Card2.colour || Card1.number == Card2.number)
+            return true;
+        else
+            return false;
+    }
+
+    public static void main(String[] args) {
+
+        DeckOfCards D1 = new DeckOfCards();
+        int deckGen = 0;
+
+        for (int i = 0; i < 10; i++) {
+            Card Cardd = new Card();
+            Cardd.colour = "czerwony";
+            Cardd.number = deckGen;
+            D1.Deck.add(Cardd);
+            deckGen++;
+        }
+        deckGen = 0;
+        for (int i = 0; i < 10; i++) {
+            Card Cardd = new Card();
+            Cardd.colour = "niebieski";
+            Cardd.number = deckGen;
+            D1.Deck.add(Cardd);
+            deckGen++;
+        }
+        deckGen = 0;
+        for (int i = 0; i < 10; i++) {
+            Card Cardd = new Card();
+            Cardd.colour = "zielony";
+            Cardd.number = deckGen;
+            D1.Deck.add(Cardd);
+            deckGen++;
+        }
+        deckGen = 0;
+        for (int i = 0; i < 10; i++) {
+            Card Cardd = new Card();
+            Cardd.colour = "żółty";
+            Cardd.number = deckGen;
+            D1.Deck.add(Cardd);
+            deckGen++;
+        }
+
+        Collections.shuffle(D1.Deck);
+        Player P1 = new Player();
+        for(int i = 0; i < 7; i++){
+            P1.Cards.add(D1.Deck.remove(1));
+
+        }
+        P1.printCards();
+       
+
+
+
+
+   }
+}
+
